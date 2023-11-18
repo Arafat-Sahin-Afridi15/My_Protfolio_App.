@@ -3,7 +3,11 @@ import 'package:portfolio/Fragment/Skills.dart';
 import 'package:portfolio/Fragment/Experiences.dart';
 import 'package:portfolio/Fragment/About.dart';
 import 'package:portfolio/Fragment/Education.dart';
+import 'package:portfolio/Fragment/Calculator.dart';
+import 'package:portfolio/Fragment/Quiz.dart';
+import 'package:portfolio/Fragment/m_app_weather_app.dart';
 import 'package:url_launcher/url_launcher.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -29,7 +33,7 @@ class HomeActivity extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 4, // Increase the length to match the number of tabs
+      length: 10, // Increased the length to match the number of tabs
       child: Scaffold(
         appBar: AppBar(
           title: Text(
@@ -71,6 +75,27 @@ class HomeActivity extends StatelessWidget {
                   color: Colors.white,
                 ),
                 text: 'Experience',
+              ),
+              Tab(
+                icon: Icon(
+                  Icons.calculate,
+                  color: Colors.white,
+                ),
+                text: 'Calculator',
+              ),
+              Tab(
+                icon: Icon(
+                  Icons.quiz,
+                  color: Colors.white,
+                ),
+                text: 'Quiz',
+              ),
+              Tab(
+                icon: Icon(
+                  Icons.water,
+                  color: Colors.white,
+                ),
+                text: 'Weather',
               ),
             ],
           ),
@@ -177,7 +202,7 @@ class HomeActivity extends StatelessWidget {
                   ),
                 ),
                 onTap: () {
-                  // Open the Facebook profile when tapped
+                  // Open the Instagram profile when tapped
                   launch('https://www.instagram.com/arafatafridi2001/?igshid=OGQ5ZDc2ODk2ZA%3D%3D');
                 },
               ),
@@ -187,21 +212,16 @@ class HomeActivity extends StatelessWidget {
                   color: Colors.blue,
                 ),
                 title: Text(
-                  'github',
+                  'GitHub',
                   style: TextStyle(
                     color: Colors.blue,
                   ),
                 ),
                 onTap: () {
-                  // Open the Facebook profile when tapped
+                  // Open the GitHub profile when tapped
                   launch('https://github.com/Arafat-Sahin-Afridi15');
                 },
-              )
-
-// Add more social media links as needed
-
-
-              // Add more ListTile items for other navigation options
+              ),
             ],
           ),
         ),
@@ -211,11 +231,12 @@ class HomeActivity extends StatelessWidget {
             Education(),
             SkillsScreen(),
             Experiences(),
+            Calculator(),
+            Quiz(),
+            WeatherScreen(),// Use the Quiz widget here
           ],
         ),
       ),
     );
   }
 }
-
-// Your About, Education, Skills, and Experiences widgets go here.
