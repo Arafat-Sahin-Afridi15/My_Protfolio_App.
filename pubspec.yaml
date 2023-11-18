@@ -28,9 +28,13 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  shared_preferences: ^2.0.12
+  url_launcher: ^6.0.9
   flutter:
     sdk: flutter
-  url_launcher: ^6.0.9  # Add the latest version of url_launcher
+  http: ^0.13.3
+  dio: ^4.0.0
+  # Use a version that is compatible with both shared_preferences and url_launcher
 
 
 
@@ -73,6 +77,12 @@ flutter:
     - lib/Assets/images/ct1.jpg
     - lib/Assets/images/ct2.jpg
     - lib/Assets/images/ct3.jpg
+    - lib/Assets/cool.png
+    - lib/Assets/cloudy.png
+    - lib/Assets/cold.png
+    - lib/Assets/hot.png
+    - lib/Assets/mild.png
+    - lib/Assets/warm.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
