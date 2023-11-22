@@ -112,7 +112,7 @@ class PortfolioScreen extends StatelessWidget {
       title: "My_Protfolio_App",
 
       technologies: ["Flutter", "Dart", "Firebase"], // List of technologies used
-      link: "", // Link to the project repository
+      link: "https://github.com/Arafat-Sahin-Afridi15/My_Protfolio_App./tree/master", // Link to the project repository
     ),
     // Add more project items as needed
   ];

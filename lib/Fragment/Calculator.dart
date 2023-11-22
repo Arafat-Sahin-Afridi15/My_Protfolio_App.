@@ -153,6 +153,7 @@ class _CalculatorScreenState extends State<Calculator> {
       ),
     );
   }
+
   void handleScientificFunction(String value) {
     if (number1.isNotEmpty) {
       final double num1 = double.parse(number1);
@@ -202,10 +203,10 @@ class _CalculatorScreenState extends State<Calculator> {
       convertToPercentage();
     } else if (value == Btn.calculate) {
       calculate();
-    } else if (Btn.buttonValues.contains(value)) {
-      appendValue(value);
-    } else if (Btn.buttonValues.contains(value)) {
+    } else if ([Btn.sin, Btn.cos, Btn.tan, Btn.ln, Btn.log, Btn.sqrt, Btn.exp].contains(value)) {
       handleScientificFunction(value);
+    } else {
+      appendValue(value);
     }
   }
 
@@ -233,22 +234,6 @@ class _CalculatorScreenState extends State<Calculator> {
         break;
       default:
     }
-    void onBtnTap(String value) {
-      if (value == Btn.del) {
-        delete();
-      } else if (value == Btn.clr) {
-        clearAll();
-      } else if (value == Btn.per) {
-        convertToPercentage();
-      } else if (value == Btn.calculate) {
-        calculate();
-      } else if ([Btn.sin, Btn.cos, Btn.tan, Btn.ln, Btn.log, Btn.sqrt, Btn.exp].contains(value)) {
-        handleScientificFunction(value);
-      } else {
-        appendValue(value);
-      }
-    }
-
 
     setState(() {
       number1 = result.toStringAsPrecision(3);

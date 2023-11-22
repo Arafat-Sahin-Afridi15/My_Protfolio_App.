@@ -29,7 +29,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
   String city = '';
   String temperature = '';
   String description = '';
-  String weatherIcon = 'lib/Assets/cloudy.png';
+  String weatherIcon = '';
   String weatherText = '';
   bool isLoading = false;
   String errorMessage = '';
@@ -40,7 +40,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
   @override
   void initState() {
     super.initState();
-    refreshWeather(); // Fetch weather data when the app starts
+    refreshWeather();
   }
 
   @override
@@ -216,25 +216,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
           windSpeed = data['wind']['speed'].toString();
 
           // Update weather icon based on temperature
-          if (double.parse(temperature) > 30) {
-            weatherIcon = 'lib/Assets/hot.png';
-            weatherText = 'Hot';
-          } else if (double.parse(temperature) >= 20 &&
-              double.parse(temperature) <= 30) {
-            weatherIcon = 'lib/Assets/warm.png';
-            weatherText = 'Warm';
-          } else if (double.parse(temperature) >= 10 &&
-              double.parse(temperature) < 20) {
-            weatherIcon = 'lib/Assets/mild.png';
-            weatherText = 'Mild';
-          } else if (double.parse(temperature) >= 0 &&
-              double.parse(temperature) < 10) {
-            weatherIcon = 'lib/Assets/cool.png';
-            weatherText = 'Cool';
-          } else {
-            weatherIcon = 'lib/Assets/cold.png';
-            weatherText = 'Cold';
-          }
+          updateWeatherIcon();
 
           // Update date and time
           final DateTime now = DateTime.now();
@@ -326,5 +308,27 @@ class _WeatherScreenState extends State<WeatherScreen> {
     final hour = dateTime.hour > 12 ? dateTime.hour - 12 : dateTime.hour;
     final period = dateTime.hour >= 12 ? 'PM' : 'AM';
     return '$hour:${dateTime.minute}:${dateTime.second} $period';
+  }
+
+  void updateWeatherIcon() {
+    if (double.parse(temperature) > 30) {
+      weatherIcon = 'lib/Assets/hot.png';
+      weatherText = 'Hot';
+    } else if (double.parse(temperature) >= 20 &&
+        double.parse(temperature) <= 30) {
+      weatherIcon = 'lib/Assets/warm.png';
+      weatherText = 'Warm';
+    } else if (double.parse(temperature) >= 10 &&
+        double.parse(temperature) < 20) {
+      weatherIcon = 'lib/Assets/mild.png';
+      weatherText = 'Mild';
+    } else if (double.parse(temperature) >= 0 &&
+        double.parse(temperature) < 10) {
+      weatherIcon = 'lib/Assets/cool.png';
+      weatherText = 'Cool';
+    } else {
+      weatherIcon = 'lib/Assets/cold.png';
+      weatherText = 'Cold';
+    }
   }
 }
