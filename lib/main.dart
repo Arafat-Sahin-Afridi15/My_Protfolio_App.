@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:portfolio/Fragment/Skills.dart';
 import 'package:portfolio/Fragment/Experiences.dart';
 import 'package:portfolio/Fragment/About.dart';
@@ -6,7 +7,7 @@ import 'package:portfolio/Fragment/Education.dart';
 import 'package:portfolio/Fragment/Calculator.dart';
 import 'package:portfolio/Fragment/Quiz.dart';
 import 'package:portfolio/Fragment/m_app_weather_app.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:portfolio/Fragment/Profile.dart'; // Import the Profile widget
 
 void main() {
   runApp(const MyApp());
@@ -24,19 +25,21 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Poppins',
       ),
       debugShowCheckedModeBanner: false,
-      home: HomeActivity(),
+      home: const HomeActivity(),
     );
   }
 }
 
 class HomeActivity extends StatelessWidget {
+  const HomeActivity({Key? key});
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 10, // Increased the length to match the number of tabs
+      length: 8,
       child: Scaffold(
         appBar: AppBar(
-          title: Text(
+          title: const Text(
             "My Portfolio",
             style: TextStyle(
               fontSize: 24,
@@ -97,6 +100,13 @@ class HomeActivity extends StatelessWidget {
                 ),
                 text: 'Weather',
               ),
+              Tab(
+                icon: Icon(
+                  Icons.person_off,
+                  color: Colors.white,
+                ),
+                text: 'Profile',
+              ),
             ],
           ),
         ),
@@ -110,13 +120,13 @@ class HomeActivity extends StatelessWidget {
                 ),
                 padding: const EdgeInsets.all(0),
                 child: UserAccountsDrawerHeader(
-                  accountName: Text(
+                  accountName: const Text(
                     "Arafat Sahin Afridi",
                     style: TextStyle(
                       color: Colors.white,
                     ),
                   ),
-                  accountEmail: Text(
+                  accountEmail: const Text(
                     "sahin15-3971@diu.edu.bd",
                     style: TextStyle(
                       color: Colors.white,
@@ -127,11 +137,11 @@ class HomeActivity extends StatelessWidget {
                 ),
               ),
               ListTile(
-                leading: Icon(
+                leading: const Icon(
                   Icons.home,
                   color: Colors.blue,
                 ),
-                title: Text(
+                title: const Text(
                   'Home',
                   style: TextStyle(
                     color: Colors.blue,
@@ -141,13 +151,12 @@ class HomeActivity extends StatelessWidget {
                   // Handle Home navigation here
                 },
               ),
-
               ListTile(
-                leading: Icon(
+                leading: const Icon(
                   Icons.email,
                   color: Colors.blue,
                 ),
-                title: Text(
+                title: const Text(
                   'Gmail',
                   style: TextStyle(
                     color: Colors.blue,
@@ -159,11 +168,11 @@ class HomeActivity extends StatelessWidget {
                 },
               ),
               ListTile(
-                leading: Icon(
+                leading: const Icon(
                   Icons.link,
                   color: Colors.blue,
                 ),
-                title: Text(
+                title: const Text(
                   'LinkedIn',
                   style: TextStyle(
                     color: Colors.blue,
@@ -175,11 +184,11 @@ class HomeActivity extends StatelessWidget {
                 },
               ),
               ListTile(
-                leading: Icon(
+                leading: const Icon(
                   Icons.facebook,
                   color: Colors.blue,
                 ),
-                title: Text(
+                title: const Text(
                   'Facebook',
                   style: TextStyle(
                     color: Colors.blue,
@@ -191,11 +200,11 @@ class HomeActivity extends StatelessWidget {
                 },
               ),
               ListTile(
-                leading: Icon(
+                leading: const Icon(
                   Icons.camera_alt_outlined,
                   color: Colors.blue,
                 ),
-                title: Text(
+                title: const Text(
                   'Instagram',
                   style: TextStyle(
                     color: Colors.blue,
@@ -207,11 +216,11 @@ class HomeActivity extends StatelessWidget {
                 },
               ),
               ListTile(
-                leading: Icon(
+                leading: const Icon(
                   Icons.gite,
                   color: Colors.blue,
                 ),
-                title: Text(
+                title: const Text(
                   'GitHub',
                   style: TextStyle(
                     color: Colors.blue,
@@ -233,7 +242,8 @@ class HomeActivity extends StatelessWidget {
             Experiences(),
             Calculator(),
             Quiz(),
-            WeatherScreen(),// Use the Quiz widget here
+            WeatherScreen(),
+            Profile(),// Use the Quiz widget here
           ],
         ),
       ),
