@@ -34,6 +34,8 @@ dependencies:
     sdk: flutter
   http: ^0.13.3
   dio: ^4.0.0
+  image_picker: ^0.8.0
+
   # Use a version that is compatible with both shared_preferences and url_launcher
 
 
